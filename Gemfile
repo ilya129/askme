@@ -29,7 +29,7 @@ gem 'jquery-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 1.2.3'
 end
 
 group :development, :test do
