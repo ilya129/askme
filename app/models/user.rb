@@ -4,14 +4,14 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
+  attr_accessor :password
+
   has_many :questions
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-
-  attr_accessor :password
-
   validates :password, presence: true, on: :create
+
   validates_confirmation_of :password
 
   before_save :encrypt_password
