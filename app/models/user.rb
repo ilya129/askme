@@ -3,6 +3,8 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
+  CHECKING_EMAIL = /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
+  CHECKING_USERNAME = /\A[a-zA-Z0-9_]+\z/
 
   attr_accessor :password
 
@@ -12,11 +14,11 @@ class User < ApplicationRecord
   validates :email, :username, uniqueness: true
   validates :password, presence: true, on: :create
 
-  validates :email, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
+  validates :email, format: CHECKING_EMAIL
   validates :username, length: { maximum: 40 }
-  validates :username, format: /\A[a-zA-Z0-9_]+\z/
+  validates :username, format: CHECKING_USERNAME
 
-  validates_confirmation_of :password
+  validates :password, :presence =>true, :confirmation =>true
 
   before_save :encrypt_password
 
