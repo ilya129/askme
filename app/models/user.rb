@@ -4,7 +4,7 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
   CHECKING_EMAIL = /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
-  CHECKING_USERNAME = /\w/
+  CHECKING_USERNAME = /^\w*$/
 
   attr_accessor :password
 
@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
   before_save :encrypt_password
 
+  def self.hash_to_string(password_hash)
+    password_hash.unpack('H*')[0]
+  end
+
   def self.authenticate(email, password)
     user = find_by(email: email)
 
@@ -38,6 +42,8 @@ class User < ApplicationRecord
     nil
   end
 
+  private
+
   def encrypt_password
     if password.present?
       self.password_salt = User.hash_to_string(OpenSSL::Random.random_bytes(16))
@@ -48,11 +54,5 @@ class User < ApplicationRecord
         )
       )
     end
-  end
-
-  private
-
-  def self.hash_to_string(password_hash)
-    password_hash.unpack('H*')[0]
   end
 end
