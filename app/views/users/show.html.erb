@@ -24,15 +24,15 @@
   <div class="user-statistics container text-center">
     <div class="column-1-3">
       <h1 class="title-small"><%= @questions_count %></h1>
-      <p><%= Sklonjator.sklonenie(@questions_count, 'вопрос', 'вопроса', 'вопросов') %></p>
+      <p><%= sklonenie(@questions_count, 'вопрос', 'вопроса', 'вопросов') %></p>
     </div>
     <div class="column-1-3">
       <h1 class="title-small"><%= @answers_count %></h1>
-      <p>ответов</p>
+      <p><%= sklonenie(@answers_count, 'ответ', 'ответа', 'ответы') %></p>
     </div>
     <div class="column-1-3">
       <h1 class="title-small"><%= @unanswered_count %></h1>
-      <p>безответных</p>
+      <p><%= sklonenie(@unanswered_count, 'безответа', 'безответов', 'безответных') %></p>
     </div>
   </div>
 </div>

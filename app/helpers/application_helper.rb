@@ -1,5 +1,3 @@
-require 'sklonjator'
-
 module ApplicationHelper
   def user_avatar(user)
     if user.avatar_url.present?
