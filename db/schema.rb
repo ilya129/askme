@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_122624) do
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
+    t.string "avatar_color"
   end
 
   add_foreign_key "questions", "users"

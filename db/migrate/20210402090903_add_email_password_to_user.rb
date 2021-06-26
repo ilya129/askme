@@ -5,5 +5,6 @@ class AddEmailPasswordToUser < ActiveRecord::Migration[6.1]
     add_column :users, :password_salt, :string
 
     add_column :users, :avatar_url, :string
+    add_column :users, :avatar_color, :string
   end
 end
