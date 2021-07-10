@@ -12,14 +12,17 @@ class User < ApplicationRecord
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :username, uniqueness: { case_sensitive: false }
   validates :password, presence: true, on: :create
 
   validates :email, format: CHECKING_EMAIL
   validates :username, length: { maximum: 40 }
   validates :username, format: CHECKING_USERNAME
-
   validates :password, confirmation: true
 
+  before_save { email.downcase! }
+  before_save { username.downcase! }
   before_save :encrypt_password
 
   def self.hash_to_string(password_hash)
