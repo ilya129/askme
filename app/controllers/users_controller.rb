@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to root_url, notice: 'Пользователь успешно зарегистрирован!'
+      session[:user_id] = @user.id
     else
       render 'new'
     end
@@ -61,6 +62,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :name, :username, :avatar_url)
+                                 :name, :username, :avatar_url, :avatar_color)
   end
 end
