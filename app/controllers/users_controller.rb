@@ -36,6 +36,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    redirect_to root_url, notice: 'Аккаунт удален'
+  end
+
   def show
     @questions = @user.questions.order(created_at: :desc)
     @new_question = @user.questions.build

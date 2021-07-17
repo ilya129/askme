@@ -11,15 +11,15 @@ class User < ApplicationRecord
   has_many :questions
 
   validates :email, :username, presence: true
-  validates :email, :username, uniqueness: true
   validates :password, presence: true, on: :create
 
   validates :email, format: CHECKING_EMAIL
   validates :username, length: { maximum: 40 }
   validates :username, format: CHECKING_USERNAME
-
   validates :password, confirmation: true
 
+  before_save { email.downcase! }
+  before_save { username.downcase! }
   before_save :encrypt_password
 
   def self.hash_to_string(password_hash)
