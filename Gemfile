@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'recaptcha', require: 'recaptcha/rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
