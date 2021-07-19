@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    
     redirect_to root_url, notice: 'Аккаунт удален'
   end
 
