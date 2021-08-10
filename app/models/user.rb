@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
-  has_many :questions, dependent: :delete
+  has_many :questions, dependent: :destroy
 
   validates :email, :username, presence: true
   validates :password, presence: true, on: :create
