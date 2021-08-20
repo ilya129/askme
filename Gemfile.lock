@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
@@ -102,6 +104,7 @@ GEM
     nokogiri (1.11.3-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
+    public_suffix (4.0.6)
     puma (5.3.0)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -173,6 +176,9 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    valid_url (0.0.4)
+      addressable
+      rails
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -209,6 +215,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier
+  valid_url
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 

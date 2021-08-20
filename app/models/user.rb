@@ -17,7 +17,8 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 40 }
   validates :username, format: CHECKING_USERNAME
   validates :password, confirmation: true
-
+  validates :avatar_url, url: true, allow_blank: true
+  
   before_save { email.downcase! }
   before_save { username.downcase! }
   before_save :encrypt_password
