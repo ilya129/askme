@@ -8,18 +8,18 @@ class User < ApplicationRecord
 
   attr_accessor :password
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
 
   validates :email, :username, presence: true
-  validates :email, :username, uniqueness: true
   validates :password, presence: true, on: :create
 
   validates :email, format: CHECKING_EMAIL
   validates :username, length: { maximum: 40 }
   validates :username, format: CHECKING_USERNAME
-
   validates :password, confirmation: true
 
+  before_save { email.downcase! }
+  before_save { username.downcase! }
   before_save :encrypt_password
 
   def self.hash_to_string(password_hash)

@@ -6,7 +6,7 @@
 
     <% if question.author_id.present? %>
       <div class="question-text">
-        <%= link_to question.author.username, user_path(question.author_id) %>
+        <%= link_tu user.username, user_path(question.author_id) %>
       </div>
     <% end %>
 
