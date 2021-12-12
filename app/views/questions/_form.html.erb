@@ -1,15 +1,6 @@
 <div class="form">
   <%= form_for(@question) do |f| %>
-    <% if @question.errors.any? %>
-      <div class="form-errors">
-        <ul>
-          <% @question.errors.full_messages.each do |message| %>
-            <li class="form-error-message"><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+    <%= render 'partials/error_messages', object: f.object %>
     <%= f.hidden_field :user_id %>
 
     <div class="form-field">

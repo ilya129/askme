@@ -14,12 +14,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require pagy
 //= require_tree .
 
-// Этот код добавляет обработчик события выдвигания формы при клике на кнопку
-// «Задать вопрос», которая видна только, когда страница открыта в маленьком
-// окне.
 require('jquery')
+
+$(window).load(function(){
+  Pagy.init()
+});
 
 $(function(){
   $('#ask-button').click(function(){

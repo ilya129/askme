@@ -28,6 +28,12 @@ a {
   font-size: 20px;
 }
 
+.header-nav-link {
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
 .content {
   padding: 0 40px;
   color: #2e2f41;
@@ -41,4 +47,11 @@ a {
 .flash-alert {
   font-size: 20px;
   color: #dc554f;
+  word-wrap: break-word;
+}
+
+.flash-notice {
+  font-size: 20px;
+  color: #1c8743;
+  word-wrap: break-word;
 }

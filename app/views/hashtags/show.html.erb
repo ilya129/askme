@@ -1,0 +1,9 @@
+<div class="user-questions.buffer-both">
+  <div class="questions-list">
+    <%= render partial: 'questions/question', collection: @questions %>
+  </div>
+</div>
+
+<div class="questions-pagination">
+  <%= pagy_combo_nav_js(@pagy).html_safe %>
+</div>

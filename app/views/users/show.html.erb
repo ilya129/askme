@@ -3,14 +3,6 @@
     <%= @user.name %>
   </h1>
 
-  <div class="buffer-both">
-    <%= link_to 'Редактировать профиль', edit_user_path(@user) if current_user == @user %>
-  </div>
-
-  <div class="buffer-both">
-    <%= link_to 'Удалить аккаунт', @user, method: :delete, data: { confirm: "Вы уверены?" } if current_user == @user %>
-  </div>
-
   <div class="user-image-div">
     <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>
   </div>
@@ -18,6 +10,16 @@
   <h2 class="title-small buffer-both">
     @<%= @user.username %>
   </h2>
+
+  <% if current_user == @user %>
+    <div class="buffer-both">
+      <%= link_to 'Редактировать профиль', edit_user_path(@user) %>
+    </div>
+
+    <div class="buffer-both">
+      <%= link_to 'Удалить аккаунт', @user, method: :delete, data: { confirm: t('are_you_sure') } %>
+    </div>
+  <% end %>
 </div>
 
 <div class="user-details">
@@ -28,16 +30,15 @@
   <div class="user-statistics container text-center">
     <div class="column-1-3">
       <h2 class="title-small"><%= @questions_count %></h2>
-      <p><%= sklonenie(@questions_count, 'вопрос', 'вопроса', 'вопросов') %></p>
+      <%= t(:question, count: @questions_count) %>
     </div>
     <div class="column-1-3">
       <h2 class="title-small"><%= @answers_count %></h2>
-      <p><%= sklonenie(@answers_count, 'ответ', 'ответа', 'ответов') %>
-      </p>
+      <%= t(:answer, count: @answers_count) %>
     </div>
     <div class="column-1-3">
       <h2 class="title-small"><%= @unanswered_count %></h2>
-      <p><%= sklonenie(@unanswered_count, 'безответный', 'безответных', 'безответных') %></p>
+      <%= t(:unanswered, count: @unanswered_count) %>
     </div>
   </div>
 </div>

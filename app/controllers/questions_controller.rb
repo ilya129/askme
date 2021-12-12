@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_action :load_question, only: [:edit, :update, :destroy]
-
   before_action :authorize_user, except: [:create]
 
   def edit
@@ -8,11 +7,10 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-
-    @question.author_id = current_user.id if current_user.present?
+    @question.author = current_user
 
     if check_captcha(@question) && @question.save
-      redirect_to user_path(@question.user), notice: 'Вопрос задан'
+      redirect_to user_url(@question.user), notice: I18n.t('controllers.questions.created')
     else
       render :edit
     end
@@ -20,7 +18,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to user_path(@question.user), notice: 'Вопрос сохранен'
+      redirect_to user_url(@question.user), notice: I18n.t('controllers.questions.updated')
     else
       render :edit
     end
@@ -29,7 +27,7 @@ class QuestionsController < ApplicationController
   def destroy
     user = @question.user
     @question.destroy
-    redirect_to user_path(user), notice: 'Вопрос удален :('
+    redirect_to user_path(user), notice: I18n.t('controllers.questions.destroyed')
   end
 
   private
@@ -43,8 +41,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    if current_user.present? &&
-      params[:question][:user_id].to_i == current_user.id
+    if current_user.present? && params[:question][:user_id].to_i == current_user.id
       params.require(:question).permit(:user_id, :text, :answer)
     else
       params.require(:question).permit(:user_id, :text)

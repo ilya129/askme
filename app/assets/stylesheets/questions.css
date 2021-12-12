@@ -8,6 +8,7 @@
 
 .question-content {
   padding: 10px 15px;
+  word-wrap: break-word;
 }
 
 .question + .question {
@@ -23,12 +24,13 @@
   color: #005a55;
 }
 
-.question-answer {
-}
-
-.question-date {
+.question-info {
   color: #a0a0a0;
   font-size: 12px;
+}
+
+.question-content a {
+  font-weight: 700;
 }
 
 .question-actions {

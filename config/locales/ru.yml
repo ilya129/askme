@@ -1,0 +1,113 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+
+    models:
+      user: 'Пользователь'
+      question: 'Вопрос'
+      hashtag: 'Хэштег'
+
+    attributes:
+      user:
+        email: 'Логин (email)'
+        username: 'Никнейм'
+        name: 'Имя'
+        avatar_url: 'URL вашей аватарки'
+        avatar_color: 'Цвет вашего фона'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      question:
+        text: 'Текст вопроса'
+        answer: 'Ответ'
+
+  controllers:
+    users:
+      created: 'Регистрация прошла успешно'
+      updated: 'Данные обновлены'
+      destroyed: 'Аккаунт удалён'
+      logged_in: 'Вы уже залогинены'
+    sessions:
+      log_in: 'Вы успешно вошли на сайт'
+      log_out: 'Успешный выход'
+      wrong_data: 'Неверные почта и/или пароль'
+    questions:
+      created: 'Вопрос задан'
+      updated: 'Вопрос сохранён'
+      destroyed: 'Вопрос удалён'
+    hashtags:
+      not_found: 'Хэштег %{ht} отсутствует в базе данных'
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: 'нужно подтвердить'
+      blank: 'не может быть пустым'
+      confirmation: "не совпадает со значением поля %{attribute}"
+      empty: 'не может быть пустым'
+      invalid: 'имеет неверное значение'
+      less_than: "может иметь значение меньшее чем %{count}"
+      model_invalid: 'Возникли ошибки: %{errors}'
+      required: 'не может отсутствовать'
+      taken: 'уже существует'
+      too_long:
+        one: "слишком большой длины (не может быть больше чем %{count} символ)"
+        few: "слишком большой длины (не может быть больше чем %{count} символа)"
+        many: "слишком большой длины (не может быть больше чем %{count} символов)"
+        other: "слишком большой длины (не может быть больше чем %{count} символа)"
+    template:
+      body: 'Проблемы возникли со следующими полями:'
+      header:
+        one: "%{model}: сохранение не удалось из-за %{count} ошибки"
+        few: "%{model}: сохранение не удалось из-за %{count} ошибок"
+        many: "%{model}: сохранение не удалось из-за %{count} ошибок"
+        other: "%{model}: сохранение не удалось из-за %{count} ошибки"
+
+  question:
+    zero: 'Вопросов нет'
+    one: '%{count} вопрос'
+    few: '%{count} вопроса'
+    many: '%{count} вопросов'
+    other: '%{count} вопроса'
+
+  unanswered:
+    zero: 'Неотвеченных нет'
+    one: '%{count} неотвеченный'
+    few: '%{count} неотвеченных'
+    many: '%{count} неотвеченных'
+    other: '%{count} неотвеченных'
+
+  answer:
+    zero: 'Ответов нет'
+    one: '%{count} ответ'
+    few: '%{count} ответа'
+    many: '%{count} ответов'
+    other: '%{count} ответа'
+
+  date:
+    month_names:
+      - 
+      - января
+      - февраля
+      - марта
+      - апреля
+      - мая
+      - июня
+      - июля
+      - августа
+      - сентября
+      - октября
+      - ноября
+      - декабря
+
+  pagy:
+    nav:
+      prev: '←'
+      next: '→'
+
+  are_you_sure: 'Вы уверены?'
+
+  recaptcha:
+    errors:
+      verification_failed: 'Подтвердите, что Вы не робот'

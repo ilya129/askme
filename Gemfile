@@ -26,7 +26,8 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'valid_url'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'pagy'
+gem 'rails-i18n'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

@@ -1,22 +1,22 @@
 <div class="question">
   <div class="question-content">
     <div class="question-text text-lead">
-      <%= question.text %>
+      <%= replace_hashtags_with_links(question.text) %>
     </div>
 
+    <% if question.answer.present? %>
+      <div class="question-answer text-lead">
+        <%= replace_hashtags_with_links(question.answer) %>
+      </div>
+    <% end %>
+
     <% if question.author_id.present? %>
-      <div class="question-text">
+      <div class="question-info">
         <%= link_to question.author.username, user_path(question.author_id) if User.exists?(question.author_id) %>
       </div>
     <% end %>
 
-    <% if question.answer.present? %>
-      <div class="question-answer text-lead">
-        <%= question.answer %>
-      </div>
-    <% end %>
-
-    <div class="question-date">
+    <div class="question-info">
       <%= l(question.created_at, format: :short) %>
     </div>
   </div>
@@ -26,7 +26,7 @@
     <div class="question-actions">
       <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-o'), question_path(question),
-                  method: :delete, data: {confirm: 'Точно удалить вопрос?'}%>
+                  method: :delete, data: { confirm: t('are_you_sure') }%>
     </div>
   <% end %>
 </div>
