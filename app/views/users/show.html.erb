@@ -1,4 +1,4 @@
-<div class="user-header text-center" style="background-color: <%=user_color(@user)%>;">
+<div class="user-header text-center" style="background-color: <%= user_color(@user) %>;">
   <h1 class="title-medium">
     <%= @user.name %>
   </h1>
@@ -56,7 +56,7 @@
       <%= recaptcha_tags size: 'compact' unless current_user.present? %>
 
       <div class="form-action">
-        <%= submit_tag 'Задать вопрос', class: 'button button-small button-dark' %>
+        <%= submit_tag 'Задать вопрос', class: 'button button-small button-green' %>
       </div>
     <% end %>
   </div>
@@ -65,9 +65,12 @@
 <div class="column-3-4">
   <div class="user-questions buffer-both">
     <div class="questions-list">
-      <% @questions.each do |question| %>
-        <%= render partial: 'questions/question', object: question %>
-      <% end %>
+      <%= render partial: 'questions/question', collection: @questions %>
     </div>
   </div>
+  <% unless @questions.count.zero? %>
+    <div class="questions-pagination">
+      <%= pagy_combo_nav_js(@pagy).html_safe %>
+    </div>
+  <% end %>
 </div>

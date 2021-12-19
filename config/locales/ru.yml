@@ -66,24 +66,24 @@ ru:
 
   question:
     zero: 'Вопросов нет'
-    one: '%{count} вопрос'
-    few: '%{count} вопроса'
-    many: '%{count} вопросов'
-    other: '%{count} вопроса'
+    one: 'вопрос'
+    few: 'вопроса'
+    many: 'вопросов'
+    other: 'вопроса'
 
   unanswered:
     zero: 'Неотвеченных нет'
-    one: '%{count} неотвеченный'
-    few: '%{count} неотвеченных'
-    many: '%{count} неотвеченных'
-    other: '%{count} неотвеченных'
+    one: 'неотвеченный'
+    few: 'неотвеченных'
+    many: 'неотвеченных'
+    other: 'неотвеченных'
 
   answer:
     zero: 'Ответов нет'
-    one: '%{count} ответ'
-    few: '%{count} ответа'
-    many: '%{count} ответов'
-    other: '%{count} ответа'
+    one: 'ответ'
+    few: 'ответа'
+    many: 'ответов'
+    other: 'ответа'
 
   date:
     month_names:

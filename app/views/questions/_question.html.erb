@@ -10,14 +10,12 @@
       </div>
     <% end %>
 
-    <% if question.author_id.present? %>
-      <div class="question-info">
-        <%= link_to question.author.username, user_path(question.author_id) if User.exists?(question.author_id) %>
-      </div>
-    <% end %>
+    <div class="question-info">
+      <%= author(question).html_safe %>
+    </div>
 
     <div class="question-info">
-      <%= l(question.created_at, format: :short) %>
+      <%= question_time(question) %>
     </div>
   </div>
 

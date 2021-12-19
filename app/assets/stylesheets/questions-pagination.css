@@ -3,27 +3,27 @@
   padding: 0.3em;
   margin-bottom: 20px;
   cursor: default;
-  background: #eccfc3;
-  border-top: 10px solid #e49ab0;
-  border-bottom: 10px solid #e49ab0;
+  background: #FFFFFF;
+  border-top: 10px solid #D9E6E5;
+  border-bottom: 10px solid #D9E6E5;
 }
 
 .questions-pagination .active {
   font-style: normal;
   font-weight: bold;
-  color: #e49ab0;
+  color: #005a55;
   padding-left: 1em;
   padding-right: 1em;
 }
 
 .questions-pagination .disabled {
-  color: #e49ab0;
+  color: #005a55;
   padding-left: 1em;
   padding-right: 1em;
 }
 
 .questions-pagination .gap {
-  color: #e49ab0;
+  color: #005a55;
 }
 
 .questions-pagination a {
@@ -31,7 +31,7 @@
 }
 
 .questions-pagination a:hover, .questions-pagination a:focus {
-  background: #e49ab0;
-  color: #eccfc3;
+  background: #005a55;
+  color: #1aeb3d;
 }
 

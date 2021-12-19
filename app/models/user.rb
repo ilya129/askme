@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
 
+  validates :name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :username, length: { maximum: 40 }, format: CHECKING_USERNAME
   validates :email, presence: true, uniqueness: true, format: CHECKING_EMAIL

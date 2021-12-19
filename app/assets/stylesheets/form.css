@@ -22,12 +22,12 @@
   font-size: 16px;
 }
 
-.form-textarea,
+.form-textarea:focus,
 .form-text-field:focus,
 .form-color-field:focus {
   outline: none;
-  box-shadow: 0 0 5px 2px #904c77;
-  border-color: #904c77;
+  box-shadow: 0 0 5px 2px #00b6ad;
+  border-color: #00b6ad;
 }
 
 .form-color-field {
